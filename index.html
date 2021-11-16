@@ -1,93 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rest countries</title>
 </head>
+
 <body>
     <script>
         var board = document.createElement("div")
         board.style.width = "1030"
         board.style.display = "flex"
-        board.style.flexDirection ="row"
+        board.style.flexDirection = "row"
         board.style.flexWrap = "wrap"
-        board.style.border= "2px solid black"
-        
-        board.style.backgroundColor="#f1f5d8";
-        
+        board.style.border = "2px solid black"
+
+        board.style.backgroundColor = "#f1f5d8";
+
         fetch("https://restcountries.com/v3.1/all")
-        .then(function(data){
-            return data.json(); 
-        })
-        .then(function(dataObj){
-            console.log(dataObj)
+            .then(function (data) {
+                return data.json();
+            })
+            .then(function (dataObj) {
+                console.log(dataObj)
 
-           dataObj.forEach(element => {
-           
-            var box = document.createElement("div")
+                dataObj.forEach(element => {
 
-            box.style.height="200px"
-            box.style.width="200px"
-            box.style.display ="flex"
-            box.style.flexDirection="column"
-            box.style.marginTop="10px";
-           // box.style.marginRight="10px"
-            box.style.marginBottom="10px"
-            box.style.marginLeft = "40px";
-            box.style.border="3px solid green"
-            board.appendChild(box)
-            
-            var smallBox1= document.createElement("img")
-            smallBox1.setAttribute('src',element.flags.png)
-            smallBox1.setAttribute('alt',"image")
-            smallBox1.style.width = "199px"
-            smallBox1.style.height = "100px"
-            //smallBox1.style.marginTop="10px"
-            smallBox1.style.border="1px solid black";
-            box.appendChild(smallBox1)
-         
-             
-            var smallBox2 = document.createElement("div")
-            smallBox2.style.color= "blue";
-            smallBox2.style.width = "199px"
-            smallBox2.style.height = "50px"
-            smallBox2.style.marginTop = "10px"
-            smallBox2.style.textAlign = "center"
-            smallBox2.style.border="1px solid black"
-            smallBox2.style.fontWeight = "900";
-            smallBox2.style.paddingTop = "15px";
-            smallBox2.style.backgroundColor = "#f18973";
-            smallBox2.innerText=element.name.common;
+                    var box = document.createElement("div")
 
-            box.appendChild(smallBox2)
+                    box.style.height = "200px"
+                    box.style.width = "200px"
+                    box.style.display = "flex"
+                    box.style.flexDirection = "column"
+                    box.style.marginTop = "10px";
+                    // box.style.marginRight="10px"
+                    box.style.marginBottom = "10px"
+                    box.style.marginLeft = "40px";
+                    box.style.border = "3px solid green"
+                    board.appendChild(box)
 
-            var smallBox3 = document.createElement("div")
-            smallBox3.style.width = "199px"
-            smallBox3.style.height = "50px"
-            smallBox3.style.marginTop = "10px"
-            smallBox3.style.textAlign = "center"
-            smallBox3.style.color="blue"
-            smallBox3.style.border="1px solid black"
-            smallBox3.style.fontWeight = "bold";
-            smallBox3.style.paddingTop = "10px";
-            smallBox3.style.backgroundColor = "powderblue";
-            smallBox3.innerText = element.car.signs;
-            box.appendChild(smallBox3)
-            
+                    var smallBox1 = document.createElement("img")
+                    smallBox1.setAttribute('src', element.flags.png)
+                    smallBox1.setAttribute('alt', "image")
+                    smallBox1.style.width = "199px"
+                    smallBox1.style.height = "100px"
+                    //smallBox1.style.marginTop="10px"
+                    smallBox1.style.border = "1px solid black";
+                    box.appendChild(smallBox1)
 
-                  
-           })
-            
-        })
-        .catch(function(err){
-            console.log(err)
-        })
+
+                    var smallBox2 = document.createElement("div")
+                    smallBox2.style.color = "blue";
+                    smallBox2.style.width = "199px"
+                    smallBox2.style.height = "50px"
+                    smallBox2.style.marginTop = "10px"
+                    smallBox2.style.textAlign = "center"
+                    smallBox2.style.border = "1px solid black"
+                    smallBox2.style.fontWeight = "900";
+                    smallBox2.style.paddingTop = "15px";
+                    smallBox2.style.backgroundColor = "#f18973";
+                    smallBox2.innerText = element.name.common;
+
+                    box.appendChild(smallBox2)
+
+                    var smallBox3 = document.createElement("div")
+                    smallBox3.style.width = "199px"
+                    smallBox3.style.height = "50px"
+                    smallBox3.style.marginTop = "10px"
+                    smallBox3.style.textAlign = "center"
+                    smallBox3.style.color = "blue"
+                    smallBox3.style.border = "1px solid black"
+                    smallBox3.style.fontWeight = "bold";
+                    smallBox3.style.paddingTop = "10px";
+                    smallBox3.style.backgroundColor = "powderblue";
+                    smallBox3.innerText = element.car.signs;
+                    box.appendChild(smallBox3)
+
+
+
+                })
+
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
 
         document.body.appendChild(board);
 
     </script>
-    
+
 </body>
+
 </html>
